@@ -8,13 +8,13 @@ file_list = os.listdir(data_dir)
 
 class DataLoader:
   def __init__(self):
-    self.customer_df = pd.read_csv(os.path.join(data_dir, file_list[0]))
-    self.product_df = pd.read_csv(os.path.join(data_dir, file_list[-3]))
-    self.category_df = pd.read_csv(os.path.join(data_dir, file_list[-2]))
+    self.customer_df = pd.read_csv(os.path.join(data_dir, 'customers_dataset.csv'))
+    self.product_df = pd.read_csv(os.path.join(data_dir, 'products_dataset.csv'))
+    self.category_df = pd.read_csv(os.path.join(data_dir, 'product_category_name_translation.csv'))
     self.new_product = self.product_df.merge(self.category_df, on='product_category_name')
-    self.order_df = pd.read_csv(os.path.join(data_dir, file_list[3]))
-    self.order_item_df = pd.read_csv(os.path.join(data_dir, file_list[4]))
-    self.order_review_df = pd.read_csv(os.path.join(data_dir, file_list[6]))
+    self.order_df = pd.read_csv(os.path.join(data_dir, 'orders_dataset.csv'))
+    self.order_item_df = pd.read_csv(os.path.join(data_dir, 'order_items_dataset.csv'))
+    self.order_review_df = pd.read_csv(os.path.join(data_dir, 'order_reviews_dataset.csv'))
 
   def get_order_df(self):
     return self.order_df
