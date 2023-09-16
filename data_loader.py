@@ -8,7 +8,7 @@ file_list = os.listdir(data_dir)
 
 class DataLoader:
   def __init__(self):
-    self.customer_df = pd.read_csv(os.path.join(data_dir, file_list[0])).drop('customer_unique_id', axis=1)
+    self.customer_df = pd.read_csv(os.path.join(data_dir, file_list[0]))
     self.product_df = pd.read_csv(os.path.join(data_dir, file_list[-3]))
     self.category_df = pd.read_csv(os.path.join(data_dir, file_list[-2]))
     self.new_product = self.product_df.merge(self.category_df, on='product_category_name')
