@@ -2,7 +2,7 @@
 ## Setup Environment
 ```
 python -m venv venv
-source venv/Scripts/activate
+source dashboard/venv/Scripts/activate
 pip install -r requirements.txt
 ```
 ## Run Streamlit App

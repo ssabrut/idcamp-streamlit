@@ -3,18 +3,15 @@ import pandas as pd
 import numpy as np
 from datetime import datetime
 
-data_dir = 'E-Commerce Public Dataset'
-file_list = os.listdir(data_dir)
-
 class DataLoader:
   def __init__(self):
-    self.customer_df = pd.read_csv(os.path.join(data_dir, 'customers_dataset.csv'))
-    self.product_df = pd.read_csv(os.path.join(data_dir, 'products_dataset.csv'))
-    self.category_df = pd.read_csv(os.path.join(data_dir, 'product_category_name_translation.csv'))
+    self.customer_df = pd.read_csv('customers_dataset.csv')
+    self.product_df = pd.read_csv('products_dataset.csv')
+    self.category_df = pd.read_csv('product_category_name_translation.csv')
     self.new_product = self.product_df.merge(self.category_df, on='product_category_name')
-    self.order_df = pd.read_csv(os.path.join(data_dir, 'orders_dataset.csv'))
-    self.order_item_df = pd.read_csv(os.path.join(data_dir, 'order_items_dataset.csv'))
-    self.order_review_df = pd.read_csv(os.path.join(data_dir, 'order_reviews_dataset.csv'))
+    self.order_df = pd.read_csv('orders_dataset.csv')
+    self.order_item_df = pd.read_csv('order_items_dataset.csv')
+    self.order_review_df = pd.read_csv('order_reviews_dataset.csv')
 
   def get_order_df(self):
     return self.order_df
